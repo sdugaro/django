@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<title>Django Image Uploader</title>
+<head> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="icon" type="image/png" href="{% static 'posts/favicon.ico' %}">
+</head>
+<body>
+
+    <img src="{% static 'posts/me.jpg' %}" alt="My Image - static[app]" title="static[app]">
+    <img src="{% static 'me2.jpg' %}" alt="My Image - static[project]" title="static[project]">
+
+    <div class="w3-container">
+    <h2>Image as a Card | 
+        <a href='post'>Post New Image</a>
+        <img src="{% static 'posts/favicon.png' %}" alt="My thumbnail">
+    </h2>
+
+      {% for post in object_list %}
+      <div class="w3-card-4" style="width:50%">
+      <!--  <div class="w3-card" style="width:50%"> -->
+        <img src="{{post.image.url}}" alt="{{ post.title }}" style="width:100%">
+        <div class="w3-container">
+        <h4>
+            <b><a href="{{post.id}}/update">{{post.title}}</a></b>
+            <a href="{{post.id}}/delete" onclick="return confirm('Are you sure?')">
+            <img width="25" style="float:right" type="image/svg+xml" src="{% static 'posts/trash.svg' %}">
+            </a>
+        </h4>
+        <p>{{post.summary}}</p>
+        </div>
+      </div>
+      <br>
+      {% endfor %}
+    </div>
+
+</body>
+</html>

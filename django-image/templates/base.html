@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+    <head><title>STEVES TAB</title></head>
+
+<body>
+
+    <!-- nav bar shows up on all pages -->
+
+    {% include 'navbar.html' %}
+
+    <!--
+        this block is inherited by each page and that 
+        block there swaps this base template block out
+    -->
+    {% block content %}
+    replace me
+    {% endblock %}
+
+</body>
+
+</html>
+

@@ -1,0 +1,9 @@
+
+<h1>Django Image Uploading</h1>
+<p> the default template file django looks for: /app/templates/app/model_viewtype.html </p>
+<ul>
+  {% for post in object_list %}
+    <h2>{{ post.title }}</h2>
+    <img src="{{ post.image.url}}" alt="{{ post.title }}">
+  {% endfor %}
+</ul>
