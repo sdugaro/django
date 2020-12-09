@@ -1,0 +1,27 @@
+{% extends 'base_bootstrap.html' %}
+
+{% block title %} Polls|Results {% endblock %}
+
+{% block content %}
+
+{% if not user.is_authenticated %}
+  <p>You are not logged in.</p>
+  <a href="{% url 'polls:login' %}">Log In Here</a>
+{% else %}
+
+{% load pdb %}
+{# {% set_breakpoint %} #}
+<h1>{{ question.question_text | pdb:"off" }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<p><a href="{% url 'polls:detail' question.id %}">Vote again?</a></p>
+<p><a href="{% url 'polls:pdf-detail' question.id %}">PDF?</a></p>
+
+{% endif %}
+{% endblock %}
+

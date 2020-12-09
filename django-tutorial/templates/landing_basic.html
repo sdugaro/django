@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- add CSS in the document head -->
+<style>
+body {
+  font-family: 'Roboto', 'Arial', Sans-Serif;
+  background: #263035;
+}
+
+.dialog {
+  margin: 40px auto;
+  width: 400px;
+  background: #f7f7f7;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  user-select: none;
+  color: #212121;
+  transition: all 2s ease-in-out;
+}
+
+.dialog > h2 {
+  background: #ff5722;
+  margin: 0;
+  padding: 20px 24px;
+  color: white;
+  font-weight: 300;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.33);
+}
+
+.dialog p {
+  margin: 24px;
+}
+
+.dialog button {
+  border: 0;
+  font: inherit;
+  background: 0;
+  margin-left: 8px;
+  padding: 8px 12px;
+  border-radius: 2px;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 500;
+  float: right;
+  background: #ddd;
+  color: #888;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.dialog button:hover {
+  backgroundi-color: #b3e5fc;
+  color: #03a9f4;
+  outline: 0;
+}
+
+.dialog .buttons {
+  margin: 24px;
+  overflow: hidden;
+}
+
+.dialog footer {
+  margin: 12px;
+  text-align: center;
+  font-family: monospace;
+}
+
+.dialog ul li {
+  margin: 4px;
+}
+
+</style>
+</head>
+
+<body>
+<div class="dialog" >
+  <h2>Welcome to the App Portal</h2>
+  <div class="buttons">
+    <button type="submit" onclick="location.href='{% url 'polls:login' %}'">POLLS</button>
+  </div>
+  <hr>
+  <footer> Click on an App to Login </footer>
+</div>
+
+<!-- Add Javascript code in the body as the document needs to be loaded -->
+<script>
+</script>
+</body>
+</html>
+

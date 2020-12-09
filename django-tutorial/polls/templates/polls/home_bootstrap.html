@@ -1,0 +1,58 @@
+{% extends 'base_bootstrap.html' %}
+
+{% block title %} Polls|Home {% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1> Welcome to the Polls WebApp, {{user}} </h1>
+
+<h2> The Poll Questions are: </h2>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+    {# rather than hard code a url, do a reverse lookup in the URLconf by name #}
+    {#<li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>#}
+      <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+{# Bootstrap Pagination interface #}
+{% if page_obj.has_other_pages %}
+  <ul class="pagination">
+    <li class="page-item">
+        <a class="page-link" href="?page=1">First</a>
+    </li>
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+    <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+
+    {% for i in page_obj.paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active">
+            <span>{{ i }} <span class="sr-only">(current)</span></span>
+        </li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+    <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+    </li>
+  </ul>
+{% endif %}
+
+{% endif %}
+{% endblock %}

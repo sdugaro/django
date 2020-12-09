@@ -1,0 +1,28 @@
+<!-- SIMPLEST POSSIBLE CLASS BASED VIEW TEMPLATE FOR A POST
+  an auth.Loging view is searched for in registration subdirs
+  of all templates paths until one matches.
+-->
+
+<h2>Log In (from polls/template/registration/login.html)</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+  <!--
+    Use settings.LOGIN_REDIRECT_URL='/polls/' on successful login
+    or uncomment to use the next context value as the url to goto
+    should the users login authentication succeed.
+    This implies that the login url would need to be
+    http://127.0.0.1:8000/polls/login/?next=/polls/
+    for the next context value to be populatedi which wouldnt be
+    obvious for a user to enter right off the bat.
+
+    We can also set this to our apps home directory as this is
+    essentially the success_url for the form.
+
+  <input type="hidden" name="next" value="{{ next }}">
+  <input type="hidden" name="next" value="/polls/">
+  -->
+</form>
+
+

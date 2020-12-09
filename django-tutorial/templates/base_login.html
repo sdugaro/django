@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Base|Login{% endblock %}</title>
+</head>
+<body>
+
+  {% for message in messages %}
+  <div style="border:2px solid green; width: fit-content;">
+    <b style="color:green">{{ message.tags|upper }}</b>: {{ message }}
+  </div>
+  {% endfor %}
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

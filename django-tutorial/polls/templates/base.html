@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% block style %}
+  <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+  {% endblock style %}
+
+  <title>{% block title %}Base Template{% endblock %}</title>
+</head>
+<body>
+
+  {% for message in messages %}
+  <div class="alert {{ message.tags }}">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>{{ message.tags|upper }}</strong>: {{ message }}
+  </div>
+  {% endfor %}
+
+  <main>
+    {% block content %}
+    {% endblock content %}
+  </main>
+
+  {% block authenticated %}
+  {% if user.is_authenticated %}
+  {# Simple Logout Link for all pages onces logged in #}
+    <p><a href="{% url 'polls:logout' %}">LOGOUT</a></p>
+  {% else %}
+    <p>You are not logged in.</p>
+    <a href="{% url 'polls:login' %}">Log In Here</a>
+  {% endif %}
+  {% endblock authenticated %}
+
+  <script>
+    {% block script %}
+    {% endblock script %}
+  </script>
+</body>
+</html>
+

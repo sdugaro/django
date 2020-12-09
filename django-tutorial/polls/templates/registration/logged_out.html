@@ -1,0 +1,11 @@
+{% extends "base_login.html" %}
+
+{% block title %} Polls|Logout {% endblock %}
+
+{% block content %}
+
+<h2> Thanks for visiting. </h2>
+
+<a href="{% url 'polls:login' %}">Login Again</a> 
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}PDF|List{% endblock title %}
+{% block authenticated %}{% endblock authenticated %}
+{% block style %} <style>.bg { background-color: #FF4140; }</style>{% endblock style %}
+
+{% block content %}
+<table style="border:2px solid black;" cellpadding="2">
+<caption> Question List </caption>
+{% for obj in object_list %}
+<tr>
+  <td>{{ forloop.counter }}</td>
+  <td>{{ obj.question_text }}</td>
+  <td>
+      <a href="{% url 'polls:pdf-detail' obj.id %}"><button>pdf</button></a>
+  <td>
+    <div class="bg">
+      <a href="{% url 'polls:pdf-detail' obj.id %}?html">
+      {% if obj.question_img %}
+        <img src="/media/{{ obj.question_img }}" height='20px'>
+      {% else %}[##]{% endif %}
+      </a>
+    </div>
+  </td>
+</tr>
+{% endfor %}
+<table>
+
+{% endblock content %}

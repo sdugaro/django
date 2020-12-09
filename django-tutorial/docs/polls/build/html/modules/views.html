@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Views &#8212; Django Polls 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pyramid.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Models" href="models.html" />
+    <link rel="prev" title="Installation" href="../install.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="Models"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../install.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Django Polls 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Views</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-polls.views">
+<span id="views"></span><h1>Views<a class="headerlink" href="#module-polls.views" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="polls.views.BootstrapPaginator">
+<em class="property">class </em><code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">BootstrapPaginator</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#BootstrapPaginator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.BootstrapPaginator" title="Permalink to this definition">¶</a></dt>
+<dd><p>A paginator that does not return the entire range, rather
+a few wing pages on either side of the current page.</p>
+<dl class="py method">
+<dt id="polls.views.BootstrapPaginator.page_range">
+<em class="property">property </em><code class="sig-name descname">page_range</code><a class="headerlink" href="#polls.views.BootstrapPaginator.page_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a 1-based range of pages for iterating through within
+a template for loop.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="polls.views.Calculator">
+<em class="property">class </em><code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">Calculator</code><a class="reference internal" href="../_modules/polls/views.html#Calculator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.Calculator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="polls.views.Calculator.add">
+<em class="property">static </em><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#Calculator.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.Calculator.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="polls.views.DetailView">
+<em class="property">class </em><code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">DetailView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#DetailView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.DetailView" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="polls.views.DetailView.get_context_data">
+<code class="sig-name descname">get_context_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#DetailView.get_context_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.DetailView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert the single object into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.DetailView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#polls.views.DetailView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#polls.models.Question" title="polls.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">polls.models.Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.DetailView.template_name">
+<code class="sig-name descname">template_name</code><em class="property"> = 'polls/detail_bootstrap.html'</em><a class="headerlink" href="#polls.views.DetailView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="polls.views.HomeView">
+<em class="property">class </em><code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">HomeView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#HomeView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.HomeView" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="polls.views.HomeView.context_object_name">
+<code class="sig-name descname">context_object_name</code><em class="property"> = 'latest_question_list'</em><a class="headerlink" href="#polls.views.HomeView.context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="polls.views.HomeView.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#HomeView.get_queryset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.HomeView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the last five published questions.
+Do not including those set to be published in the future:</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.HomeView.paginate_by">
+<code class="sig-name descname">paginate_by</code><em class="property"> = 1</em><a class="headerlink" href="#polls.views.HomeView.paginate_by" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.HomeView.paginator_class">
+<code class="sig-name descname">paginator_class</code><a class="headerlink" href="#polls.views.HomeView.paginator_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#polls.views.BootstrapPaginator" title="polls.views.BootstrapPaginator"><code class="xref py py-class docutils literal notranslate"><span class="pre">BootstrapPaginator</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.HomeView.template_name">
+<code class="sig-name descname">template_name</code><em class="property"> = 'polls/home_bootstrap.html'</em><a class="headerlink" href="#polls.views.HomeView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="polls.views.PdfDetailView">
+<em class="property">class </em><code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">PdfDetailView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#PdfDetailView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.PdfDetailView" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="polls.views.PdfDetailView.context_object_name">
+<code class="sig-name descname">context_object_name</code><em class="property"> = 'question'</em><a class="headerlink" href="#polls.views.PdfDetailView.context_object_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="polls.views.PdfDetailView.get_context_data">
+<code class="sig-name descname">get_context_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#PdfDetailView.get_context_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.PdfDetailView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert the single object into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.PdfDetailView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#polls.views.PdfDetailView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#polls.models.Question" title="polls.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">polls.models.Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="polls.views.PdfDetailView.pdf_response_rl">
+<code class="sig-name descname">pdf_response_rl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">download</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#PdfDetailView.pdf_response_rl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.PdfDetailView.pdf_response_rl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the ReportLab api and the Model Objects provided by the context
+dict in this views pipeline.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="polls.views.PdfDetailView.pdf_response_xp">
+<code class="sig-name descname">pdf_response_xp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">html</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">download</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#PdfDetailView.pdf_response_xp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.PdfDetailView.pdf_response_xp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the xhtml2pdf to convert html to pdf an return
+it in an HttpResponse. Return an error message in the
+HttpResponse object if the conversion fails.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="polls.views.PdfDetailView.render_to_response">
+<code class="sig-name descname">render_to_response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">context</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#PdfDetailView.render_to_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.PdfDetailView.render_to_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a response, using the <cite>response_class</cite> for this view, with a
+template rendered with the given context.</p>
+<p>Pass response_kwargs to the constructor of the response class.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.PdfDetailView.template_name">
+<code class="sig-name descname">template_name</code><em class="property"> = 'polls/pdf_detail.html'</em><a class="headerlink" href="#polls.views.PdfDetailView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="polls.views.PdfListView">
+<em class="property">class </em><code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">PdfListView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#PdfListView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.PdfListView" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="polls.views.PdfListView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#polls.views.PdfListView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#polls.models.Question" title="polls.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">polls.models.Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.PdfListView.template_name">
+<code class="sig-name descname">template_name</code><em class="property"> = 'polls/pdf_list.html'</em><a class="headerlink" href="#polls.views.PdfListView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="polls.views.ResultsView">
+<em class="property">class </em><code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">ResultsView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#ResultsView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.ResultsView" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="polls.views.ResultsView.get_object">
+<code class="sig-name descname">get_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#ResultsView.get_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.ResultsView.get_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the object the view is displaying.</p>
+<p>Require <cite>self.queryset</cite> and a <cite>pk</cite> or <cite>slug</cite> argument in the URLconf.
+Subclasses can override this to return any object.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.ResultsView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#polls.views.ResultsView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#polls.models.Question" title="polls.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">polls.models.Question</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.ResultsView.template_name">
+<code class="sig-name descname">template_name</code><em class="property"> = 'polls/results_bootstrap.html'</em><a class="headerlink" href="#polls.views.ResultsView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="polls.views.SignUpView">
+<em class="property">class </em><code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">SignUpView</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#SignUpView"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.SignUpView" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="polls.views.SignUpView.dispatch">
+<code class="sig-name descname">dispatch</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#SignUpView.dispatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.SignUpView.dispatch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.SignUpView.form_class">
+<code class="sig-name descname">form_class</code><a class="headerlink" href="#polls.views.SignUpView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">polls.forms.SignUpForm</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="polls.views.SignUpView.form_valid">
+<code class="sig-name descname">form_valid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#SignUpView.form_valid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.SignUpView.form_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the form is valid, save the associated model.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.SignUpView.success_url">
+<code class="sig-name descname">success_url</code><em class="property"> = '/polls/login/'</em><a class="headerlink" href="#polls.views.SignUpView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="polls.views.SignUpView.template_name">
+<code class="sig-name descname">template_name</code><em class="property"> = 'registration/signup.html'</em><a class="headerlink" href="#polls.views.SignUpView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="polls.views.detail">
+<code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">detail</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">question_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#detail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.detail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="polls.views.hello_world">
+<code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">hello_world</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#hello_world"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.hello_world" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="polls.views.home">
+<code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">home</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#home"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.home" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="polls.views.index">
+<code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="polls.views.render_pdf_view">
+<code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">render_pdf_view</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#render_pdf_view"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.render_pdf_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render out a pdf file from an html template that displays what
+the user input as a query string in their browser request.</p>
+<dl class="simple">
+<dt>path(</dt><dd><p>‘index/&lt;int:int_key&gt;/&lt;str:str_key&gt;/&lt;slug:slug_key&gt;/&lt;path:path_key&gt;’,
+views.index)</p>
+</dd>
+<dt><a class="reference external" href="http://127.0.0.1:8000/polls/">http://127.0.0.1:8000/polls/</a></dt><dd><p>index/2020/hello/__Init0-<a href="#id1"><span class="problematic" id="id2">9__</span></a>/path/?name=steve&amp;age=25&amp;age=45</p>
+</dd>
+</dl>
+<p>Note that Django parses the query string into a &lt;QueryDict&gt; object
+and stores it in the HttpRequest.GET or HttpRequest.POST depending
+on whether the request was submitted via url or via a form button</p>
+<p>Note that the context passed to render is an empty dict by default.
+If a value in the dictionary is callable, the view will call it
+just before rendering the template.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="polls.views.results">
+<code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">results</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">question_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="polls.views.vote">
+<code class="sig-prename descclassname">polls.views.</code><code class="sig-name descname">vote</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em>, <em class="sig-param"><span class="n">question_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/polls/views.html#vote"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#polls.views.vote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function based view requiring an id via url match or via
+context arguments in reverse redirect</p>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../install.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="models.html"
+                        title="next chapter">Models</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/views.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="Models"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../install.html" title="Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Django Polls 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Views</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Steve Dugaro.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+    </div>
+  </body>
+</html>

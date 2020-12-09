@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Polls|PDF Genrator {% endblock %}
+
+{% block style %}
+.back {
+    background-color: 'red';
+}
+{% endblock style%}
+
+{% block authenticated %}{% endblock %}
+
+{% block content %}
+
+<h2> Hi {{ user }}. Here is your auto-generated PDF </h2>
+<h3> The input url was: <code>{{ url }}</code> </h3>
+<p>
+It includes your query strings along with a few additional
+context variables added by the view and URLConf path.
+</p>
+
+<table style="border:1px solid black;" cellpadding="2">
+<caption> Query Strings </caption>
+{% for k, v in data.items %}
+<tr><td><code>{{k}}</code></td><td>{{v}}</td>
+{% endfor %}
+<table>
+
+<p>
+The database contains the following Questions:
+<img src="/static/img/me.jpg" height='20px'>
+</p>
+
+<table style="border:2px dashed black;" cellpadding="2">
+<caption> Question Query </caption>
+{% for obj in db %}
+<tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ obj.question_text }}</td>
+    <td>
+        <div class="back">
+        <img src="/media/{{ obj.question_img }}" height='20px'>
+        </div>
+    </td>
+</tr>
+{% endfor %}
+<table>
+
+<!-- display all Meta and header info on this host -->
+<!-- request objects wont render into PDF -->
+
+<table style="border:1px dotted black;" cellpadding="2">
+<caption> request.headers </caption>
+{% for k, v in request.headers.items %}
+<tr><td><code>{{k}}</code></td><td>{{v}}</td>
+{% endfor %}
+</table>
+
+<table style="border:1px dashed black;" cellpadding="2">
+<caption> request.META </caption>
+{% for k, v in request.META.items %}
+<tr><td><code>{{k}}</code></td><td>{{v}}</td>
+{% endfor %}
+</table>
+
+<hr>
+{{ debug }}
+<hr>
+
+{% endblock %}

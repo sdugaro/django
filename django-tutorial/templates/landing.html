@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- add CSS in the document head -->
+<style>
+body {
+  font-family: 'Roboto', 'Arial', Sans-Serif;
+  background: #263035;
+}
+
+.fps {
+  text-align: center;
+  font-family: monospace;
+}
+
+.dialog canvas {
+  border: 2px solid #999;
+  border-radius: 2px;
+  margin: auto;
+  display: block;
+}
+
+/* .dialog */
+
+.dialog {
+  margin: 40px auto;
+  width: 400px;
+  background: #f7f7f7;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  user-select: none;
+  color: #212121;
+  transition: all 2s ease-in-out;
+}
+
+.dialog>h2 {
+  background: #ff5722;
+  margin: 0;
+  padding: 20px 24px;
+  color: white;
+  font-weight: 300;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.33);
+}
+
+.dialog p {
+  margin: 24px;
+}
+
+.dialog button {
+  border: 0;
+  font: inherit;
+  background: 0;
+  margin-left: 8px;
+  padding: 8px 12px;
+  border-radius: 2px;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 500;
+  float: right;
+  background: #ddd;
+  color: #888;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+.dialog button:hover {
+  backgroundi-color: #b3e5fc;
+  color: #03a9f4;
+  outline: 0;
+}
+
+.dialog .buttons {
+  margin: 24px;
+  overflow: hidden;
+}
+
+.dialog footer {
+  margin: 12px;
+  font-family: monospace;
+  text-align: center;
+}
+
+.dialog ul li {
+  margin: 4px;
+}
+
+</style>
+</head>
+
+<body>
+<div class="dialog" >
+  <h2>Welcome to the App Portal</h2>
+  <div class="buttons">
+    <button type="submit" onclick="location.href='{% url 'polls:login' %}'">POLLS</button>
+  </div>
+  <footer> Click on an App to Login </footer>
+  <hr>
+  <div class="fps" id="fps">? fps</div>
+  <canvas id="canvas" width="700" height="300" style="width: 350px; height: 150px;"></canvas>
+  <footer> Click anywhere in the canvas or click the <br> ADD BALLS button to add balls </footer>
+  <div class="buttons">
+    <button id="add">Add Balls</button>
+  </div>
+</div>
+
+<!-- Add Javascript code in the body as the document needs to be loaded -->
+<script>
+
+var balls = [];
+function Ball(x, y) {
+  this.x = x;
+  this.y = y;
+  this.dx = Math.random() * 30 - 15;
+  this.dy = Math.random() * 20;
+  this.hue = Math.random() * 360;
+}
+
+// Create a drawing context, and set up to draw with requestAnimationFrame.
+var context = canvas.getContext('2d');
+var last = new Date();
+requestAnimationFrame(function draw() {
+  var now = new Date();
+  var duration = now - last;
+  var ratio = duration / 1000;
+  last = now;
+
+  // Display the rough FPS, and request to be drawn again.
+  fps.textContent = balls.length + ' balls, ' + Math.round(1000 / duration) + ' fps';
+  requestAnimationFrame(draw);
+
+  canvas.width = canvas.width; // clear
+
+  // Draw each ball.
+  balls.forEach(function(ball) {
+    var radius = 10;
+    context.beginPath();
+    context.arc(ball.x, ball.y, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = 'hsla(' + ball.hue + ', 100%, 50%, 0.75)';
+    context.fill();
+  });
+
+  // Move each ball, removing (filtering) if offscreen.
+  balls = balls.filter(function(ball) {
+    // Apply gravity-like force.
+    ball.dy += (ratio * canvas.height);
+
+    // Move
+    ball.x += ball.dx * ratio;
+    ball.y += ball.dy * ratio;
+
+    // Check for ground, or offscreen.
+    if (ball.y > canvas.height) {
+      ball.dy *= -0.9;
+    }
+    if (ball.y > canvas.height + 10 ||
+       ball.x < 0 || ball.x >= canvas.width) {
+      return false;
+    }
+
+    return true;
+  });
+
+});
+
+// Clicking on the canvas directly will add a single ball.
+canvas.addEventListener('click', function(ev) {
+  var ball = new Ball(ev.offsetX * 2, ev.offsetY * 2);
+  balls.push(ball);
+});
+
+// Clicking on "Add Balls" will add 100 balls at random locations.
+add.addEventListener('click', function() {
+  for (var i = 0; i < 100; ++i) {
+    var x = Math.random() * canvas.width;
+    var y = Math.random() * Math.random() * canvas.height;
+    var ball = new Ball(x, y);
+    balls.push(ball);
+  }
+});
+</script>
+</body>
+</html>
+

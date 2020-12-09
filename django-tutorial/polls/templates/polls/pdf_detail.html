@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block style %}{% endblock %}
+{% block title %} PDF|Detail {% endblock %}
+{% block authenticated %}{% endblock %}
+
+{% block content %}
+
+<table>
+<tr><td>
+{% if format == 'html' %}
+  {% if question.question_img %}
+    <img src="{{question.question_img.url}}" height="100px">
+  {% else %}
+    {%load static %}<code>PLACEHOLDER</code>
+    <br> <img src="{%static 'img/me.jpg' %}" height="100px">
+  {% endif %}
+{% else %}
+<img src="{{question.question_img.path}}" height="100px">
+{% endif %}
+</td><td style="vertical-align:bottom">
+{% if question.question_img %}
+{{question.question_img}}<br>
+{{question.question_img.url}}<br>
+{{question.question_img.path}}<br>
+{% endif %}
+</td></tr>
+</table>
+<hr>
+
+<h1>{{ question.question_text }}</h1>
+<hr>
+
+<ul>
+{% for choice in question.choice_set.all %}
+<li>{{ choice.choice_text }} ?</li>
+{% empty %}
+Sorry, no answers to this question have been recorded.
+{% endfor %}
+</ul>
+
+<hr>
+
+
+{% if format == 'html' %}
+<br><br>
+<a href="{% url 'polls:pdf-list' %}">< Back To Pdf List</a>
+{% endif %}
+
+{% endblock %}
+
