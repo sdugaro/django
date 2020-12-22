@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+Retail Report
+<script src="https://cdn.flexmonster.com/flexmonster.js"></script> 
+<div id="pivot"></div>
+<div id="pivot_chart"></div>
+
+<script>
+var pivot = new Flexmonster({
+    container: "#pivot",
+    componentFolder: "https://cdn.flexmonster.com/",
+    height: 600,
+    toolbar: true,
+    report: {
+        "dataSource": {
+            "type": "api",
+            "url": "http://localhost:9204/mongo", // the url where our connector is running
+            "index": "transactions" // specify the collection’s name
+        },
+        "slice": {}
+    }
+});
+
+</script>
+
+{% endblock %}
