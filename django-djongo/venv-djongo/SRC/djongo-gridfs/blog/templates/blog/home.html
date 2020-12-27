@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-8 offset-md-2">
+    <h1>Blog Index</h1>
+    <hr>
+    {% for post in object_list %}
+    <h2><a href="{% url 'detail' post.pk %}">{{ post.headline }}</a></h2>
+    <small><em>{{ post.pub_date }}</em></small>
+    <p>{{ post.body_text | slice:":200" }}...</p>
+    {% endfor %}
+</div>
+{% endblock %}

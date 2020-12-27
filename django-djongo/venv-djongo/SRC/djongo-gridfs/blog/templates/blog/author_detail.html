@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-8 offset-md-2">
+    <h1>{{ object | title }}</h1>
+    <hr>
+    <small> email: {{ object.email }} </small>
+    <br>
+    <small> img: {{ object.avatar }} </small>
+    <br>
+    <img style="max-width: 100%; width: auto;" alt="streamed mongodb image"
+    src="data:image/jpeg;base64,{{ image }}"/>
+    <br>
+    <small> img data:  {{ image }} </small>
+</div>
+{% endblock %}

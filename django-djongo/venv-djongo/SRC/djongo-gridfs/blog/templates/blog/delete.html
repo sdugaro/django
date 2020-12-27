@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-8 offset-md-2">
+    <h1>Delete Blog Entry</h1>
+    <hr>
+    <h3>Delete {{ object.headline }}?</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button class="btn btn-secondary">Delete</button>
+    </form>
+</div>
+{% endblock %}

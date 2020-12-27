@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-8 offset-md-2">
+    <h1>{{ object.headline }}</h1>
+    <small>
+        {{ object.pub_date }} |&nbsp;By:&nbsp;
+        {% for author in object.authors.all %}
+        <a href="{% url 'author' author.name %}">
+            {{ author.name }}
+        </a>&nbsp;
+        {% endfor %}
+    </small>
+    <p>{{ object.body_text | linebreaks }}</p>
+    <br>
+    <img style="max-width: 100%; width: auto;" alt="streamed mongodb image"
+    src="data:image/png;base64,{{ image }}"/>
+    <br>
+    image data:
+    <textarea style="width: 100%;" rows=4>{{ image }} </textarea>
+
+    <a class="btn btn-outline-success" href="{% url 'update' object.pk %}">Update</a>
+    <a class="btn btn-outline-success" href="{% url 'delete' object.pk %}">Delete</a>
+
+</div>
+{% endblock %}
